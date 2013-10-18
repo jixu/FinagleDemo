@@ -29,6 +29,8 @@ public class NettyBasedFederationServer {
         bootstrap.setOption("child.tcpNoDelay", true);
         bootstrap.setOption("child.keepAlive", true);
 
+        System.out.println("Starting NettyBasedFederationServer...");
+
         bootstrap.bind(new InetSocketAddress(8081));
     }
 }
