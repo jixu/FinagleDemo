@@ -1,11 +1,18 @@
 package com.yahoo.slingstone.demo;
 
-/**
- * Created with IntelliJ IDEA.
- * User: xuji
- * Date: 10/18/13
- * Time: 9:27 AM
- * To change this template use File | Settings | File Templates.
- */
-public class FederationHandler {
+import org.jboss.netty.channel.*;
+
+
+public class FederationHandler extends SimpleChannelHandler {
+    @Override
+    public void messageReceived(ChannelHandlerContext cxt, MessageEvent e) {
+        System.out.println("Got a message: " + e.getMessage());
+    }
+    @Override
+    public void exceptionCaught(ChannelHandlerContext cxt, ExceptionEvent e) {
+        e.getCause().printStackTrace();
+
+        Channel ch = e.getChannel();
+        ch.close();
+    }
 }
