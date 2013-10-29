@@ -14,14 +14,14 @@ object AsyncHttpServer extends App {
   val service: Service[HttpRequest, HttpResponse] = new Service[HttpRequest, HttpResponse] {
     def apply(request: HttpRequest) = {
       val resp = new DefaultHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK)
-      resp.setContent("async result")
+      resp.setContent("{\"result\":\"ok\",\"resultCode\":0,\"popularDocs\":[{\"uuid\":\"ccc829cd-bb98-345b-ad7e-64ea86978961\",\"score\":0.7549561452977871,\"title\":\"ccc829cd-bb98-345b-ad7e-64ea86978961\",\"reason\":\"age_gender\",\"features\":[]}]}")
       Future.value(resp)
     }
   }
 
   val server = ServerBuilder()
     .codec(http.Http())
-    .bindTo(new InetSocketAddress(8080))
+    .bindTo(new InetSocketAddress(4080))
     .name("Async Server")
     .build(service)
 }

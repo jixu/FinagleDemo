@@ -15,14 +15,28 @@
         <groupId>org.scala-tools</groupId>
         <artifactId>maven-scala-plugin</artifactId>
         <version>2.15.2</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
+          <executions>
+              <execution>
+                  <id>compile</id>
+                  <goals>
+                      <goal>compile</goal>
+                  </goals>
+                  <phase>compile</phase>
+              </execution>
+              <execution>
+                  <id>test-compile</id>
+                  <goals>
+                      <goal>testCompile</goal>
+                  </goals>
+                  <phase>test-compile</phase>
+              </execution>
+              <execution>
+                  <phase>process-resources</phase>
+                  <goals>
+                      <goal>compile</goal>
+                  </goals>
+              </execution>
+          </executions>
       </plugin>
 
       <plugin>
@@ -72,7 +86,20 @@
 
   
   <dependencies>
-    <dependency>
+      <dependency>
+          <groupId>org.codehaus.jackson</groupId>
+          <artifactId>jackson-core-asl</artifactId>
+          <version>1.9.13</version>
+      </dependency>
+      <dependency>
+          <groupId>org.codehaus.jackson</groupId>
+          <artifactId>jackson-mapper-asl</artifactId>
+          <version>1.9.13</version>
+      </dependency>
+
+
+
+      <dependency>
       <groupId>com.twitter</groupId>
       <artifactId>finagle-core_2.10</artifactId>
       <version>6.6.2</version>
@@ -89,11 +116,10 @@
     </dependency>
 
     <dependency>
-        <groupId>com.fasterxml</groupId>
-        <artifactId>jackson-module-scala</artifactId>
-        <version>1.9.3</version>
+        <groupId>com.typesafe</groupId>
+        <artifactId>config</artifactId>
+        <version>1.0.2</version>
     </dependency>
-
 
       <dependency>
       <groupId>org.scala-lang</groupId>
