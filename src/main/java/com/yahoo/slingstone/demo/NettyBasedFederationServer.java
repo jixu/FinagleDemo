@@ -22,7 +22,7 @@ public class NettyBasedFederationServer {
         bootstrap.setPipelineFactory(new ChannelPipelineFactory() {
             @Override
             public ChannelPipeline getPipeline() throws Exception {
-                return Channels.pipeline(new FederationHandler());
+                return Channels.pipeline(new ZookeeperHandler());
             }
         });
 

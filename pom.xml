@@ -97,23 +97,39 @@
           <version>1.9.13</version>
       </dependency>
 
+      <dependency>
+          <groupId>org.apache.curator</groupId>
+          <artifactId>curator-recipes</artifactId>
+          <version>2.4.0</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>org.jboss.netty</groupId>
+                  <artifactId>netty</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
 
 
       <dependency>
       <groupId>com.twitter</groupId>
       <artifactId>finagle-core_2.10</artifactId>
-      <version>6.6.2</version>
+      <version>6.10.0</version>
     </dependency>
     <dependency>
       <groupId>com.twitter</groupId>
       <artifactId>finagle-http_2.10</artifactId>
-      <version>6.6.2</version>
+      <version>6.10.0</version>
     </dependency>
     <dependency>
         <groupId>com.twitter</groupId>
         <artifactId>finagle-redis_2.10</artifactId>
-        <version>6.6.2</version>
+        <version>6.10.0</version>
     </dependency>
+      <dependency>
+          <groupId>com.twitter</groupId>
+          <artifactId>finagle-serversets_2.10</artifactId>
+          <version>6.10.0</version>
+      </dependency>
 
     <dependency>
         <groupId>com.typesafe</groupId>
@@ -146,4 +162,11 @@
     </dependency>
 
   </dependencies>
+    <repositories>
+        <repository>
+            <id>twitter</id>
+            <url>http://maven.twttr.com/</url>
+        </repository>
+    </repositories>
+
 </project>
