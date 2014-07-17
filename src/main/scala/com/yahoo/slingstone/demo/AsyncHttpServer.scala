@@ -21,7 +21,7 @@ object AsyncHttpServer extends App {
 
   val server = ServerBuilder()
     .codec(http.Http())
-    .bindTo(new InetSocketAddress(4080))
+    .bindTo(new InetSocketAddress(80))
     .name("Async Server")
     .build(service)
 }

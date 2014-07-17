@@ -31,6 +31,6 @@ public class NettyBasedFederationServer {
 
         System.out.println("Starting NettyBasedFederationServer...");
 
-        bootstrap.bind(new InetSocketAddress(8081));
+        bootstrap.bind(new InetSocketAddress(80));
     }
 }
